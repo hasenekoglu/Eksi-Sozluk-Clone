@@ -39,7 +39,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.Context
             if (!optionsBuilder.IsConfigured)
             {
                 var connStr =
-                    "Data Source=(localdb)\\MSSQLLocalDB;Database=blazorsozluk: Trusted_Connection=True;";
+                    "Data Source=(localdb)\\MSSQLLocalDB;Database=BlazorSozluk: Trusted_Connection=True;";
                 optionsBuilder.UseSqlServer().UseSqlServer(connStr, opt =>
                 {
                     opt.EnableRetryOnFailure();

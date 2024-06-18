@@ -18,14 +18,14 @@ namespace BlazorSozluk.Infrastructure.Persistence.Extensions
             services.AddDbContext<BlazorSozlukContext>(conf =>
             {
                 var connStr = configuration["BlazorSozlukDbConnectionString"].ToString();
-                conf.UseSqlServer("", opt =>
+                conf.UseSqlServer(connStr, opt =>
                 {
                     opt.EnableRetryOnFailure();
                 });
             });
 
-            var seedData = new SeedData();
-            seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+            //var seedData = new SeedData();
+            //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
             return services;
         }
     }
