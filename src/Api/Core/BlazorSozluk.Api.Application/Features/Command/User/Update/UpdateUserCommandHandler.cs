@@ -46,9 +46,10 @@ namespace BlazorSozluk.Api.Application.Features.Command.User.Update
                     NewEmailAddress = dbUser.EmailAddress
                 };
                 QueueFactory.SendMessageToExchange(exchangeName: SozlukConstants.UserExchangeName,
-                    exchangeType: SozlukConstants.DefaultExchangeType,
-                    queueName: SozlukConstants.UserEmailChangedQueueName,
-                    obj: @event);
+                                                    exchangeType: SozlukConstants.DefaultExchangeType,
+                                                    queueName: SozlukConstants.UserEmailChangedQueueName,
+                                                    obj: @event);
+
 
                 dbUser.EmailConfirmed = false;
                 await userRepository.UpdateAsync(dbUser);

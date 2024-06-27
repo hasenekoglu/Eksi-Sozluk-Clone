@@ -17,10 +17,12 @@ namespace BlazorSozluk.Common.Infrastructure
                                         object obj)
         {
             var channel = CreateBasicConsumer()
-                .EnsureExchange(exchangeName, exchangeType)
-                .EnsureQueue(queueName, exchangeName).Model;
+                                    .EnsureExchange(exchangeName, exchangeType)
+                                    .EnsureQueue(queueName, exchangeName)
+                                    .Model;
 
             var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(obj));
+            
             channel.BasicPublish(exchange: exchangeName,
                                     routingKey: queueName,
                                     basicProperties: null,
@@ -28,7 +30,7 @@ namespace BlazorSozluk.Common.Infrastructure
         }
 
         public static EventingBasicConsumer CreateBasicConsumer()
-        {
+        {       
             var factory = new ConnectionFactory() { HostName = SozlukConstants.RabbitMQHost};
             var connection = factory.CreateConnection();
             var channel = connection.CreateModel();
@@ -46,8 +48,15 @@ namespace BlazorSozluk.Common.Infrastructure
                                                             string queueName,
                                                             string exchangeName)
         {
-            consumer.Model.QueueDeclare(queue: queueName, durable: false, exclusive: false, autoDelete: false, null);
-            consumer.Model.QueueBind(exchangeName, exchangeName, queueName);
+            consumer.Model.QueueDeclare(queue: queueName,
+                                        durable: false,
+                                        exclusive: false,
+                                        autoDelete: false,
+                                        null);
+
+            consumer.Model.QueueBind(queueName,
+                                    exchangeName,
+                                    queueName);
             return consumer;
         }
     }

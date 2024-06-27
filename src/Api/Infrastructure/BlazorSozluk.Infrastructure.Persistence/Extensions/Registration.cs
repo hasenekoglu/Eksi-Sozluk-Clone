@@ -26,8 +26,8 @@ namespace BlazorSozluk.Infrastructure.Persistence.Extensions
                 });
             });
 
-            //var seedData = new SeedData();
-            //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+            //var seeddata = new SeedData();
+            //seeddata.SeedAsync(configuration).GetAwaiter().GetResult();
 
             services.AddScoped<IUserRepository, UserRepository>();
             return services;

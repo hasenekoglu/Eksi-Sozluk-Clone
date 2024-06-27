@@ -12,7 +12,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace BlazorSozluk.Infrastructure.Persistence.Context
 {
-    internal class SeedData
+    public class SeedData
     {
         private static List<User> GetUsers()
         {

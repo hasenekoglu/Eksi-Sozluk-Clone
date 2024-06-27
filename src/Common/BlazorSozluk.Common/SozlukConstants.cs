@@ -13,5 +13,10 @@ namespace BlazorSozluk.Common
 
         public const string UserExchangeName = "UserExchange";
         public const string UserEmailChangedQueueName = "UserEmailChangedQueue";
+
+        public static string FavExchangeName = "FavExchangeName";
+        public static string CreateEntryFavQueueName = "CreateEntryCommentFavQueue";
+        public static string CreateEntryCommentFavQueueName = "CreateEntryCommentFavQueue";
+        
     }
 }
