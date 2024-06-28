@@ -14,10 +14,19 @@ namespace BlazorSozluk.Api.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<User, LoginUserViewModel>().ReverseMap();
+            CreateMap<User, LoginUserViewModel>()
+                .ReverseMap();
+
             CreateMap<CreateUserCommand, User>();
+
             CreateMap<UpdateUserComand, User>();
-            CreateMap<CreateEntryCommand, Entry>().ReverseMap();
+
+            CreateMap<CreateEntryCommand, Entry>()
+                .ReverseMap();
+
+            CreateMap<CreateEntryCommentCommand, EntryComment>()
+                .ReverseMap();
+
         }
     }
 }
