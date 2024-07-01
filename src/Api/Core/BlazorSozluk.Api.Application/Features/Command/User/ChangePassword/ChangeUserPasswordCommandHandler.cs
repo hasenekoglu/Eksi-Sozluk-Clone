@@ -29,7 +29,7 @@ namespace BlazorSozluk.Api.Application.Features.Command.User.ChangePassword
             if (dbUser is null)
                 throw new DatabaseValidationException("User not found");
 
-            var encPass = PasswordEncryptor.Encrpt(request.OldPassword);
+            var encPass = PasswordEncryptor.Encrpt(request.NewPassword);
             if (dbUser.Password != encPass)
                 throw new DatabaseValidationException("Old password wrong!");
 

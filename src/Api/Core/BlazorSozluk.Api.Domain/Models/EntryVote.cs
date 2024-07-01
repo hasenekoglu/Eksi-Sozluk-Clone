@@ -16,5 +16,6 @@ namespace BlazorSozluk.Api.Domain.Models
         public VoteType VoteType { get; set; }
 
         public virtual Entry Entry { get; set; }
+
     }
 }
